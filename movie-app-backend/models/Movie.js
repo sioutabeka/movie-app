@@ -25,6 +25,11 @@ const movieSchema = new mongoose.Schema(
             type: String,
             default: "https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/be2cb9a9101e5cbd1644e722d9d4fadd~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=63033&refresh_token=d1f3c6b479c4025c134af4f88c914122&x-expires=1738846800&x-signature=14G9Pe3xBKUxbxv61Hdto0G627k%3D&shp=a5d48078&shcp=81f88b70",
 
+        },
+
+        trailerLink: {
+            type: String,
+            default: "https://www.youtube.com/embed/?v=dQw4w9WgXcQ"
         }
     }, 
     {

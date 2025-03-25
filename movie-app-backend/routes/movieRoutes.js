@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
 
     
     try {
-        const { title, rating, description, posterURL} = req.body; 
+        const { title, rating, description, posterURL, trailerLink } = req.body; 
 
         // Check si les champs obligatoire sont présents 
         if(!title || rating === undefined ) {
@@ -66,7 +66,7 @@ router.post("/", async (req, res) => {
         
 
         // La on crée le nouvel obj avec les infos fournis 
-        const newMovie = new Movie({ title, rating, description, posterURL });
+        const newMovie = new Movie({ title, rating, description, posterURL, trailerLink });
 
         // Save dans la DB 
         await newMovie.save();
@@ -88,12 +88,12 @@ router.post("/", async (req, res) => {
         try {
 
             //Extraire les valeurs ajoutées par le client
-            const { title, rating, description, posterURL} = req.body; 
+            const { title, rating, description, posterURL, trailerLink } = req.body; 
 
             // Trouver le film via l'ID et MAJ les valeurs 
             const updatedMovie = await Movie.findByIdAndUpdate(
                 (req.params.id), // ID du film à modif
-                { title, rating, description, posterURL}, // Nouvelles valeurs 
+                { title, rating, description, posterURL, trailerLink }, // Nouvelles valeurs 
                 { new: true, runValidators: true}
             );
 
